@@ -6,6 +6,6 @@ if (!geminiApiKey) {
 }
 
 export const ai = new ChatGoogleGenerativeAI({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.5-flash",
     apiKey: geminiApiKey
 });
