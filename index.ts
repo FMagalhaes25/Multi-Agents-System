@@ -15,14 +15,14 @@ const graph = new StateGraph(State)
     .addNode("comms_specialist", commsSpecialist)
     .addEdge(START, "supervisor")
     .addConditionalEdges("supervisor", (state: typeof State.State) => {
-        return state.nextNode;      
+        return state.nextNode === "END" ? END : state.nextNode;
     })
     .addEdge("financial_specialist", "supervisor")
     .addEdge("scheduling_specialist", "supervisor")
     .addEdge("comms_specialist", "supervisor")
     .compile();
 
-const result = await graph.invoke({ input: new HumanMessage("Olá!")});
+const result = await graph.invoke({ messages: [new HumanMessage("Olá!")] });
 
 console.log(result);
 
