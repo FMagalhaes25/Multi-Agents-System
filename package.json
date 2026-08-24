@@ -24,16 +24,18 @@
   },
   "contributors": [],
   "scripts": {
-    "dev": "node --loader ts-node/esm index.ts",
+    "dev": "node --env-file=.env --import tsx index.ts",
     "test": ""
   },
   "dependencies": {
     "@langchain/core": "^1.2.9",
+    "@langchain/google-genai": "^2.3.0",
     "@langchain/langgraph": "^1.4.12"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.3"
   }
 }
